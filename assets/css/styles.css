@@ -1,0 +1,584 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet');
+
+/* General Styles */
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Header con Flexbox */
+header {
+  top: 0;
+  position: sticky;
+  display: flex;
+  justify-content: space-between; /* Separa el logo a la izquierda y el navbar a la derecha */
+  align-items: center; /* Centra verticalmente los elementos */
+  padding: 15px 12%;
+  background-color: #a31717; /* Color de fondo opcional */
+  z-index: 1000;
+}
+/* Estilo del logo */
+header .logo {
+  padding: 10px;
+  width: 160px; /* Ajusta el tamaño del logo */
+}
+.logo {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+}
+/* Navbar */
+nav {
+  height: 60px;
+  background-color: #a31717;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.links-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+nav a {
+  height: 100%;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s;
+}
+nav a:hover {
+  color: #e6d600;
+}
+nav .inicio-link {
+  margin-right: auto;
+}
+nav svg {
+  fill: white;
+}
+#sidebar-active {
+  display: none;
+}
+.open-sidebar-button,
+.close-sidebar-button {
+  display: none;
+}
+/* Configuración responsive corregida */
+@media (max-width: 920px) {
+  .links-container {
+    flex-direction: column;
+    align-items: flex-start;
+    position: fixed;
+    top: 0;
+    right: -100%; /* Asegura que empieza fuera de la pantalla */
+    z-index: 10;
+    height: 100%;
+    width: 250px;
+    background-color: #222;
+    box-shadow: -5px 0 5px rgba(0, 0, 0, 0.25);
+    border-bottom-left-radius: 10px;
+    transition: right 0.5s ease-in-out; /* Simplificado y efectivo */
+  }
+
+  nav a {
+    box-sizing: border-box;
+    height: auto;
+    width: 100%;
+    padding: 20px 30px;
+    justify-content: flex-start;
+  }
+
+  .open-sidebar-button,
+  .close-sidebar-button {
+    padding: 20px;
+    display: block;
+  }
+
+  /* Muestra el menú al activar el checkbox */
+  #sidebar-active:checked ~ .links-container {
+    right: 0;
+  }
+
+  #sidebar-active:checked ~ #overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    background: rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 60px;
+  background: #a31717;
+}
+.hero-text {
+  max-width: 600px; /* Para controlar el ancho y que no se expanda demasiado */
+  margin-left: 50px;
+}
+.hero-text h1 {
+  font-size: 64px; /* Tamaño grande pero sin exagerar */
+  font-weight: bold;
+  color: white;
+  text-align: left;
+  /* -webkit-text-stroke: 1px black; Borde negro más delgado */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra más sutil */
+  line-height: 1.1; /* Reduce la separación entre líneas */
+  margin-bottom: 10px; /* Reduce el espacio entre el h1 y el p */
+}
+.hero-text p {
+  font-size: 18px; /* Más pequeño que el h1 */
+  color: white;
+  text-align: left;
+  margin-top: 5px; /* Reduce el espacio con el h1 */
+  margin-bottom: 35px;
+}
+.hero button {
+  background: #38363a;
+  color: #fff;
+  padding: 15px 35px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.hero img {
+  margin-right: 50px;
+}
+/* Responsive Design */
+
+/* Tablets */
+@media (max-width: 820px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px;
+  }
+
+  .hero-text {
+    margin-left: 0;
+    max-width: 100%;
+  }
+
+  .hero-text h1 {
+    font-size: 48px;
+    text-align: center;
+  }
+
+  .hero-text p {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .hero img {
+    width: 300px;
+    margin: 20px 0;
+  }
+
+  .hero button {
+    background: #000000;
+  }
+}
+/* Mobile */
+@media (max-width: 480px) {
+  .hero {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .hero-text h1 {
+    font-size: 32px;
+    line-height: 1.2;
+  }
+
+  .hero-text p {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .hero button {
+    padding: 10px 25px;
+    font-size: 14px;
+  }
+
+  .hero img {
+    width: 270px;
+    padding-top: 30px;
+    margin: 10px 0;
+  }
+}
+
+/* Companies Section */
+.companies {
+  text-align: center;
+  padding: 0 10%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background: #a31717;
+}
+/* Texto superior */
+.companies p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+/* Contenedor de los logos */
+.company-logos {
+  background: #8f8181; /* Gris semi-transparente */
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+/* Media Query para móviles */
+@media (max-width: 780px) {
+  .company-logos {
+    background-color: #331B3B;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px;
+  }
+  .company-logos img {
+    max-width: 60px;
+  }
+  .companies p {
+    font-size: 12px;
+  }
+}
+
+/* Branding Section */
+.branding {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 50px;
+  background: #a31717;
+}
+.branding-text {
+  max-width: 400px;
+}
+.branding h2 {
+  color: white;
+  font-size: 40px; /* Tamaño grande pero sin exagerar */
+  font-weight: bold;
+}
+.branding p {
+  color: white;
+}
+/* Media Query para pantallas más pequeñas */
+@media (max-width: 840px) {
+  .branding {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  .branding h2 {
+    margin-bottom: 10px;
+  }
+  .branding p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  .branding img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Custom Section */
+.custom {
+  text-align: center;
+  background-color: #a31717; /* Color de fondo */
+  padding: 50px 20px;
+}
+.custom h2 {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+.custom-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.custom-card {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: left;
+  width: 100%;
+  max-width: 285px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+.custom-card:hover {
+  transform: translateY(-5px);
+}
+.custom-card img {
+  width: 30px; /* Asegura un tamaño uniforme */
+  height: 30px; /* Mantiene la proporción */
+  padding: 10px;
+  border-radius: 10px;
+  display: block;
+  object-fit: contain; /* Asegura que la imagen completa se vea sin recortes */
+}
+/* Estilos para cada icono con diferente color de fondo */
+.icon-website {
+  background-color: #f8d7da; /* Rojo claro */
+}
+.icon-web {
+  background-color: #fff3cd; /* Amarillo claro */
+}
+.icon-mobile {
+  background-color: #d1ecf1; /* Azul claro */
+}
+.custom-card h3 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 15px;
+  color: #2b2b2b;
+}
+.custom-card p {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 10px;
+}
+@media (min-width: 600px) {
+  .custom-card {
+    width: calc(50% - 20px);
+  }
+}
+@media (min-width: 1024px) {
+  .custom-card {
+    width: calc(33.333% - 20px);
+  }
+}
+
+/* Custom Section */
+.custom {
+  text-align: center;
+  background-color: #a31717; /* Color de fondo */
+  padding: 50px 20px;
+}
+.custom h2 {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+.custom-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.custom-card {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: left;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+.custom-card:hover {
+  transform: translateY(-5px);
+}
+.custom-card img {
+  width: 30px; /* Asegura un tamaño uniforme */
+  height: 30px; /* Mantiene la proporción */
+  padding: 10px;
+  border-radius: 10px;
+  display: block;
+  object-fit: contain; /* Asegura que la imagen completa se vea sin recortes */
+}
+/* Estilos para cada icono con diferente color de fondo */
+.icon-website {
+  background-color: #f8d7da; /* Rojo claro */
+}
+.icon-web {
+  background-color: #fff3cd; /* Amarillo claro */
+}
+.icon-mobile {
+  background-color: #d1ecf1; /* Azul claro */
+}
+.custom-card h3 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 15px;
+  color: #2b2b2b;
+}
+.custom-card p {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 10px;
+}
+@media (min-width: 600px) {
+  .custom-card {
+    width: calc(50% - 20px);
+  }
+}
+@media (min-width: 1024px) {
+  .custom-card {
+    width: calc(33.333% - 20px);
+  }
+}
+
+/* Contact Section */
+.contact {
+  background-color: #a31717; /* Fondo rojo */
+  display: flex;
+  justify-content: center;
+  padding: 50px 20px;
+}
+/* Contenedor central */
+.contact-content {
+  background-color: #b0a7a9; /* Fondo gris */
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  width: 100%;
+  padding: 20px;
+  border-radius: 20px;
+  gap: 30px;
+}
+/* Imagen */
+.contact-image img {
+  width: 100%;
+  max-width: 300px; /* Ajuste para imagen */
+}
+/* Texto */
+.contact-text {
+  flex: 1;
+  text-align: center;
+}
+.contact-text h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  margin-top: -5px;
+  margin-bottom: 10px;
+}
+.contact-text p {
+  font-size: 1rem;
+  color: white;
+  margin: 10px 0;
+  padding-bottom: 20px;
+}
+/* Botón */
+.contact-text button {
+  background-color: #a31616; /* Rojo */
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.contact-text button:hover {
+  background-color: #7d1010;
+}
+@media (max-width: 600px) {
+  .contact-content {
+    flex-direction: column;
+    padding: 10px;
+    padding-bottom: 10%;
+    background-color: #331B3B;
+  }
+  .contact-text h2 {
+    font-size: 1.5rem;
+  }
+  .contact-text p {
+    font-size: 0.9rem;
+  }
+  .contact-text button {
+    background: #000000;
+  }
+}
+
+/* Footer */
+.footer {
+  background-color: #857978; /* Color de fondo */
+  padding: 40px 0;
+  text-align: left;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-column {
+  flex: 1;
+  padding: 0 20px;
+}
+
+.footer-column h3 {
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.footer-column p {
+  color: #ddd;
+  font-size: 14px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+  color: #ddd;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-column ul li a:hover {
+  color: #fff;
+}
+
+/* Media query para footer en formato mobile */
+@media (max-width: 600px) {
+  .footer {
+    background-color: #331B3B /* Color de fondo */
+  }
+  .footer-content {
+    background-color: #331B3B;
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer-column {
+    padding: 10px 0;
+  }
+}
