@@ -13,16 +13,16 @@ header {
   top: 0;
   position: sticky;
   display: flex;
-  justify-content: space-between; /* Separa el logo a la izquierda y el navbar a la derecha */
-  align-items: center; /* Centra verticalmente los elementos */
+  justify-content: space-between;
+  align-items: center;
   padding: 15px 12%;
-  background-color: #a31717; /* Color de fondo opcional */
+  background-color: #a31717;
   z-index: 1000;
 }
 /* Estilo del logo */
 header .logo {
   padding: 10px;
-  width: 160px; /* Ajusta el tamaño del logo */
+  width: 160px;
 }
 .logo {
   font-size: 18px;
@@ -76,14 +76,14 @@ nav svg {
     align-items: flex-start;
     position: fixed;
     top: 0;
-    right: -100%; /* Asegura que empieza fuera de la pantalla */
+    right: -100%;
     z-index: 10;
     height: 100%;
     width: 250px;
     background-color: #222;
     box-shadow: -5px 0 5px rgba(0, 0, 0, 0.25);
     border-bottom-left-radius: 10px;
-    transition: right 0.5s ease-in-out; /* Simplificado y efectivo */
+    transition: right 0.5s ease-in-out;
   }
 
   nav a {
@@ -125,24 +125,24 @@ nav svg {
   background: #a31717;
 }
 .hero-text {
-  max-width: 600px; /* Para controlar el ancho y que no se expanda demasiado */
+  max-width: 600px;
   margin-left: 50px;
 }
 .hero-text h1 {
-  font-size: 64px; /* Tamaño grande pero sin exagerar */
+  font-size: 64px;
   font-weight: bold;
   color: white;
   text-align: left;
   /* -webkit-text-stroke: 1px black; Borde negro más delgado */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra más sutil */
-  line-height: 1.1; /* Reduce la separación entre líneas */
-  margin-bottom: 10px; /* Reduce el espacio entre el h1 y el p */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  line-height: 1.1;
+  margin-bottom: 10px;
 }
 .hero-text p {
-  font-size: 18px; /* Más pequeño que el h1 */
+  font-size: 18px;
   color: white;
   text-align: left;
-  margin-top: 5px; /* Reduce el espacio con el h1 */
+  margin-top: 5px;
   margin-bottom: 35px;
 }
 .hero button {
@@ -239,7 +239,7 @@ nav svg {
 }
 /* Contenedor de los logos */
 .company-logos {
-  background: #8f8181; /* Gris semi-transparente */
+  background: #8f8181;
   padding: 20px;
   border-radius: 10px;
   display: flex;
@@ -251,7 +251,7 @@ nav svg {
 /* Media Query para móviles */
 @media (max-width: 780px) {
   .company-logos {
-    background-color: #331B3B;
+    background-color: #331b3b;
     flex-wrap: wrap;
     gap: 10px;
     padding: 15px;
@@ -277,7 +277,7 @@ nav svg {
 }
 .branding h2 {
   color: white;
-  font-size: 40px; /* Tamaño grande pero sin exagerar */
+  font-size: 40px;
   font-weight: bold;
 }
 .branding p {
@@ -306,7 +306,7 @@ nav svg {
 /* Custom Section */
 .custom {
   text-align: center;
-  background-color: #a31717; /* Color de fondo */
+  background-color: #a31717;
   padding: 50px 20px;
 }
 .custom h2 {
@@ -327,7 +327,7 @@ nav svg {
   padding: 20px;
   text-align: left;
   width: 100%;
-  max-width: 285px;
+  max-width: 300px;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
 }
@@ -335,12 +335,12 @@ nav svg {
   transform: translateY(-5px);
 }
 .custom-card img {
-  width: 30px; /* Asegura un tamaño uniforme */
-  height: 30px; /* Mantiene la proporción */
+  width: 30px;
+  height: 30px;
   padding: 10px;
   border-radius: 10px;
   display: block;
-  object-fit: contain; /* Asegura que la imagen completa se vea sin recortes */
+  object-fit: contain;
 }
 /* Estilos para cada icono con diferente color de fondo */
 .icon-website {
@@ -363,85 +363,21 @@ nav svg {
   color: #555;
   margin-top: 10px;
 }
-@media (min-width: 600px) {
-  .custom-card {
-    width: calc(50% - 20px);
+@media (max-width: 920px) {
+  .custom-card:nth-child(3) {
+    display: none;
   }
-}
-@media (min-width: 1024px) {
-  .custom-card {
-    width: calc(33.333% - 20px);
+  /* Invertir orden y mantener centrado */
+  .custom-cards {
+    display: flex;
+    flex-direction: column-reverse; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 20px; 
   }
-}
-
-/* Custom Section */
-.custom {
-  text-align: center;
-  background-color: #a31717; /* Color de fondo */
-  padding: 50px 20px;
-}
-.custom h2 {
-  color: #fff;
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 40px;
-}
-.custom-cards {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-.custom-card {
-  background-color: #fff;
-  border-radius: 15px;
-  padding: 20px;
-  text-align: left;
-  width: 100%;
-  max-width: 400px;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
-}
-.custom-card:hover {
-  transform: translateY(-5px);
-}
-.custom-card img {
-  width: 30px; /* Asegura un tamaño uniforme */
-  height: 30px; /* Mantiene la proporción */
-  padding: 10px;
-  border-radius: 10px;
-  display: block;
-  object-fit: contain; /* Asegura que la imagen completa se vea sin recortes */
-}
-/* Estilos para cada icono con diferente color de fondo */
-.icon-website {
-  background-color: #f8d7da; /* Rojo claro */
-}
-.icon-web {
-  background-color: #fff3cd; /* Amarillo claro */
-}
-.icon-mobile {
-  background-color: #d1ecf1; /* Azul claro */
-}
-.custom-card h3 {
-  font-size: 1rem;
-  font-weight: bold;
-  margin-top: 15px;
-  color: #2b2b2b;
-}
-.custom-card p {
-  font-size: 0.9rem;
-  color: #555;
-  margin-top: 10px;
-}
-@media (min-width: 600px) {
   .custom-card {
-    width: calc(50% - 20px);
-  }
-}
-@media (min-width: 1024px) {
-  .custom-card {
-    width: calc(33.333% - 20px);
+    width: 100%;
+    max-width: 300px;
   }
 }
 
@@ -467,12 +403,15 @@ nav svg {
 /* Imagen */
 .contact-image img {
   width: 100%;
-  max-width: 300px; /* Ajuste para imagen */
+  max-width: 500px; /* Ajuste para imagen */
+  padding-left: 35px;
+  
 }
 /* Texto */
 .contact-text {
   flex: 1;
-  text-align: center;
+  text-align: left;
+  padding: 35px;
 }
 .contact-text h2 {
   font-size: 2rem;
@@ -506,7 +445,7 @@ nav svg {
     flex-direction: column;
     padding: 10px;
     padding-bottom: 10%;
-    background-color: #331B3B;
+    background-color: #331b3b;
   }
   .contact-text h2 {
     font-size: 1.5rem;
@@ -516,6 +455,9 @@ nav svg {
   }
   .contact-text button {
     background: #000000;
+  }
+  .contact-image img {
+    display: none;
   }
 }
 
@@ -571,10 +513,10 @@ nav svg {
 /* Media query para footer en formato mobile */
 @media (max-width: 600px) {
   .footer {
-    background-color: #331B3B /* Color de fondo */
+    background-color: #331b3b; /* Color de fondo */
   }
   .footer-content {
-    background-color: #331B3B;
+    background-color: #331b3b;
     flex-direction: column;
     text-align: center;
   }
